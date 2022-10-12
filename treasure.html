@@ -145,24 +145,24 @@
                 lastCheck = position;
             }
         function help() {
-                lastCheck_column = parseInt(lastCheck % 5)
-                lastCheck_row = parseInt(lastCheck / 5)
-                treasureLocation_column = parseInt(treasureLocation % 5)
-                treasureLocation_row = parseInt(treasureLocation / 5)
+                LC_clmn = parseInt(lastCheck % 5)
+                LC_rw= parseInt(lastCheck / 5)
+                TL_clmn= parseInt(treasureLocation % 5)
+                TL_rw = parseInt(treasureLocation / 5)
                 score += 2
                 document.getElementById("score").innerHTML = "Score is " + score
-                if(lastCheck_row == treasureLocation_row) {
-                    if(lastCheck_column > treasureLocation_column) {
+                if(LC_rw== TL_rw) {
+                    if(LC_clmn > TL_clmn) {
                         document.getElementById("help").innerHTML = "Left"
-                    } else if(lastCheck_column < treasureLocation_column) {
+                    } else if(LC_clmn < TL_clmn) {
                         document.getElementById("help").innerHTML = "Right"
                     } else {
                         document.getElementById("help").innerHTML = "Sorry, no help available"
                     }
-                } else if(lastCheck_column == treasureLocation_column) {
-                    if(lastCheck_row < treasureLocation_row) {
+                } else if(LC_clmn == TL_clmn) {
+                    if(LC_rw < TL_rw) {
                         document.getElementById("help").innerHTML = "Down"
-                    } else if(lastCheck_row > treasureLocation_row) {
+                    } else if(LC_rw > TL_rw) {
                         document.getElementById("help").innerHTML = "Up"
                     } else {
                         document.getElementById("help").innerHTML = "Sorry, no help available"
