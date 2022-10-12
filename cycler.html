@@ -56,14 +56,14 @@
         <button onclick="makeNewDiv()" class="btn btn-warning" type="submit" >Add value</button>
         <button onclick="get()" class="btn btn-primary" type="submit">Get</button>
         <button onclick="spin()" class="btn btn-secondary" type="submit">Spin</button>
+        <button class="btn btn-primary" type="submit" onclick="swap()">Swap</button>
     </div>
     <script>
         function makeNewDiv() {
             let element = document.createElement("div");
-            let val = document.getElementById("getInput").value;
-            element.innerHTML = val
+            let valueofcycler = document.getElementById("getInput").value;
+            element.innerHTML = valueofcycler
             element.className = "cycler"
-
             let container = document.getElementById('target')
             container.appendChild(element)
         }
@@ -79,10 +79,23 @@
                 removedItem = cyclerItems[cyclerItems.length - 1];
                 cyclerItems[cyclerItems.length - 1].remove();
 
-                var value = document.getElementById("target");
+                let value = document.getElementById("target");
                 value.insertBefore(removedItem, value.firstChild)
             }
         }
+        function swap() {
+                let cyclerItems = document.getElementsByClassName("cycler")
+                let container = document.getElementById("target")
+                let a = Math.floor(Math.random() * cyclerItems.length)
+                let b = Math.floor(Math.random() * cyclerItems.length)
+                let firstInnerText = document.getElementsByClassName("cycler")[a]
+                let secondInnerText = document.getElementsByClassName("cycler")[b]
+                if(cyclerItems.length > 1) {
+                    let temp = firstInnerText.innerHTML
+                    firstInnerText.innerHTML = secondInnerText.innerHTML
+                    secondInnerText.innerHTML = temp
+                }
+            }
     </script>
 </body>
 
