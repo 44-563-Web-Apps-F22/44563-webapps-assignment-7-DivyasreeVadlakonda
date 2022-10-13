@@ -56,7 +56,7 @@
         <button onclick="makeNewDiv()" class="btn btn-warning" type="submit" >Add value</button>
         <button onclick="get()" class="btn btn-primary" type="submit">Get</button>
         <button onclick="spin()" class="btn btn-secondary" type="submit">Spin</button>
-        <button class="btn btn-primary" type="submit" onclick="swap()">Swap</button>
+        <button onclick="swap()" type="submit" class="btn btn-info">Swap</button>
     </div>
     <script>
         function makeNewDiv() {
@@ -74,7 +74,7 @@
             }
         }
         function spin() {
-            var cyclerItems = document.getElementsByClassName("cycler");
+            let cyclerItems = document.getElementsByClassName("cycler");
             if (cyclerItems.length > 1) {
                 removedItem = cyclerItems[cyclerItems.length - 1];
                 cyclerItems[cyclerItems.length - 1].remove();
@@ -86,14 +86,14 @@
         function swap() {
                 let cyclerItems = document.getElementsByClassName("cycler")
                 let container = document.getElementById("target")
-                let a = Math.floor(Math.random() * cyclerItems.length)
-                let b = Math.floor(Math.random() * cyclerItems.length)
-                let firstInnerText = document.getElementsByClassName("cycler")[a]
-                let secondInnerText = document.getElementsByClassName("cycler")[b]
+                let variable = Math.floor(Math.random() * cyclerItems.length)
+                let value = Math.floor(Math.random() * cyclerItems.length)
+                let firstInnerText = document.getElementsByClassName("cycler")[variable]
+                let secondInnerText = document.getElementsByClassName("cycler")[value]
                 if(cyclerItems.length > 1) {
-                    let temp = firstInnerText.innerHTML
+                    let change = firstInnerText.innerHTML
                     firstInnerText.innerHTML = secondInnerText.innerHTML
-                    secondInnerText.innerHTML = temp
+                    secondInnerText.innerHTML = change
                 }
             }
     </script>
